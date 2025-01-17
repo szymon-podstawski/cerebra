@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Środowiska wirtualne
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logi
+*.log
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
+
+# Pliki tymczasowe
+*.tmp
+*.bak
+*.swp
+
+# Pliki konfiguracyjne
+.env
+.env.local
+.env.*.local
+
+# Katalogi AWS
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml 

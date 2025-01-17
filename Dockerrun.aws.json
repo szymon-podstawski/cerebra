@@ -1,0 +1,13 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "brain-analysis-api",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": "8080",
+      "HostPort": "80"
+    }
+  ]
+} 

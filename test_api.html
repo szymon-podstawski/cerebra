@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Brain API</title>
+</head>
+<body>
+    <h1>Test Brain API</h1>
+    <button onclick="testAPI()">Wykonaj analizę</button>
+    <div id="results"></div>
+    <img id="plot" style="max-width: 100%;">
+
+    <script>
+        async function testAPI() {
+            const url = 'http://localhost:8080/analyze';
+            const data = {
+                data_type: 'EEG',
+                noise_level: 0.1,
+                frequency: 10
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                
+                // Wyświetl wyniki
+                document.getElementById('results').innerHTML = 
+                    '<pre>' + JSON.stringify(result.results, null, 2) + '</pre>';
+                
+                // Wyświetl wykres
+                document.getElementById('plot').src = 
+                    'data:image/png;base64,' + result.plot_base64;
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html> 
