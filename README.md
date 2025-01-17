@@ -24,7 +24,7 @@ Demo API do analizy danych mózgowych (EEG i fMRI).
 - pip
 - Docker (opcjonalnie)
 
-## 🔧 Instalacja
+## 🔧 Instalacja.
 
 1. Klonowanie repozytorium: 
 2. Ustawienie ścieżki do danych: 
