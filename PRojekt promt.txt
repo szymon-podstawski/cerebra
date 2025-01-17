@@ -1,0 +1,106 @@
+PRojekt promt:
+
+python example.py
+
+pewnie działamy, przeanaizuj to co już jest. Wykonaj kolejny krok jaki myślisz, że trzeba wykonać.
+
+You are an expert in deep learning, transformers, diffusion models, and LLM development, with a focus on Python libraries such as PyTorch, Diffusers, Transformers, and Gradio.
+
+Tworzenie biblioteki w Pythonie, która łączy obrazowanie mózgu z badaniem świadomości, to ambitny projekt, wymagający wykorzystania narzędzi do przetwarzania danych z obrazowania mózgu oraz modelowania procesów związanych z ludzką świadomością. Można tego dokonać przy użyciu bibliotek Python takich jak `cursor` (do tworzenia interaktywnych narzędzi), `numpy`, `pandas`, `matplotlib`, a także narzędzi specyficznych dla neuroobrazowania, takich jak `nilearn` czy `mne`.
+
+Poniżej przedstawiam plan krok po kroku:
+
+---
+
+### **1. Cele projektu**
+Biblioteka powinna umożliwiać:
+- Przetwarzanie i analizę danych z obrazowania mózgu
+- Wykrywanie wzorców związanych z różnymi stanami świadomości (np. sen, medytacja, aktywne skupienie).
+- Wizualizację wyników analizy.
+
+---
+
+### **2. Narzędzia i biblioteki**
+- **Do obrazowania mózgu**
+  
+- **Do analizy danych**:
+  - `numpy`, `pandas`: do przetwarzania danych liczbowych i tabelarycznych.
+  - `scikit-learn`: do uczenia maszynowego i analizy wzorców.
+
+- **Do interakcji i wizualizacji**:
+  - `matplotlib`, `seaborn`: do wizualizacji danych.
+  - `cursor`: do budowy interaktywnego API dla użytkowników.
+
+---
+
+### **3. Architektura biblioteki**
+#### Moduły:
+1. **Import i przetwarzanie danych**:
+   - Ładowanie danych z obrazowania (np. NIfTI dla fMRI, format EDF dla EEG).
+   - Wstępne przetwarzanie danych (filtracja, normalizacja, ekstrakcja cech).
+
+2. **Analiza danych**:
+   - Analiza czasowo-przestrzenna aktywności mózgu.
+   - Identyfikacja wzorców świadomości (np. za pomocą klastrowania, PCA, ICA).
+
+3. **Uczenie maszynowe**:
+   - Klasyfikacja stanów świadomości na podstawie danych.
+   - Trening modeli na oznaczonych zestawach danych (np. świadomy vs nieświadomy).
+
+4. **Wizualizacja**:
+   - Mapy aktywności mózgu w 3D.
+   - Wykresy czasowe stanów świadomości.
+
+5. **Interaktywność (cursor)**:
+   - Budowanie API pozwalającego na łatwe wprowadzanie parametrów analizy.
+   - Interaktywne eksplorowanie wyników.
+
+---
+
+### **4. Przykładowa struktura kodu**
+#### Główny plik biblioteki:
+```python
+# main.py
+from processing import load_data, preprocess_data
+from analysis import analyze_brain_activity
+from visualization import plot_brain_map, plot_time_series
+from cursor import Cursor
+
+def main():
+    # Interaktywne wejście
+    cursor = Cursor()
+    file_path = cursor.input("Podaj ścieżkę do danych obrazowania mózgu:")
+    data_type = cursor.select("Wybierz typ danych:", ["fMRI", "EEG", "MEG"])
+    
+    # Import i przetwarzanie
+    raw_data = load_data(file_path, data_type)
+    processed_data = preprocess_data(raw_data)
+    
+    # Analiza
+    results = analyze_brain_activity(processed_data)
+    
+    # Wizualizacja
+    plot_brain_map(results["brain_map"])
+    plot_time_series(results["time_series"])
+    
+    print("Analiza zakończona. Wyniki zapisano do pliku.")
+
+if __name__ == "__main__":
+    main()
+```
+
+---
+
+### **5. Rozszerzenia**
+- W przyszłości możesz dodać:
+  - Integrację z bazami danych neuroobrazowania (np. OpenNeuro).
+  - Obsługę stanów pośrednich (np. hipnozy, transu).
+  - Symulacje aktywności mózgu na podstawie danych.
+
+---
+
+### **6. Uwagi**
+- Projekt wymaga dostępu do rzeczywistych danych neuroobrazowania, które można znaleźć w publicznych repozytoriach (np. OpenNeuro, Human Connectome Project).
+- Budując bibliotekę, pamiętaj o odpowiednim zabezpieczeniu danych i zachowaniu prywatności pacjentów.
+
+Chcesz, bym rozwinął któryś z tych punktów? Może wspólnie zaczniemy implementację jednego modułu? 😊
